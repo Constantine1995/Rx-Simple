@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 struct LoginViewModel {
-    var emailText = Variable<String>("")
-    var passwordText = Variable<String>("")
+    var emailText = BehaviorSubject<String>(value: "")
+    var passwordText = BehaviorSubject<String>(value: "")
     
     var isValid: Observable<Bool> {
         return Observable.combineLatest(emailText.asObservable(), passwordText.asObservable()) { email, password in
